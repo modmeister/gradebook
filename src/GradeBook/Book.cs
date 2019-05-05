@@ -5,12 +5,12 @@ namespace GradeBook
 {
     public class Book
     {
-        private string name;
+        public string Name;
         private List<double> grades;
 
         public Book(string name)
         {
-            this.name = name;
+            Name = name;
             grades = new List<double>();
         }
 
@@ -21,30 +21,30 @@ namespace GradeBook
 
         public Statistics GetStatistics()
         {
-            var statistics = new Statistics();
-            statistics.Average = 0.0;
-            statistics.High = double.MinValue;
-            statistics.Low = double.MaxValue;
+            var result = new Statistics();
+            result.Average = 0.0;
+            result.High = double.MinValue;
+            result.Low = double.MaxValue;
 
             foreach (var grade in grades)
             {
-                statistics.Low = Math.Min(grade, statistics.Low);
-                statistics.High = Math.Max(grade, statistics.High);
-                statistics.Average += grade;
+                result.Low = Math.Min(grade, result.Low);
+                result.High = Math.Max(grade, result.High);
+                result.Average += grade;
             }
 
             if (grades.Count == 0)
             {
-                statistics.Low = 0.0;
-                statistics.High = 0.0;
-                statistics.Average = 0.0;
+                result.Low = 0.0;
+                result.High = 0.0;
+                result.Average = 0.0;
             }
             else
             {
-                statistics.Average /= grades.Count;
+                result.Average /= grades.Count;
             }
             
-            return statistics;
+            return result;
         }
     }
 }
