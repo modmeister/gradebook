@@ -19,7 +19,7 @@ namespace GradeBook
             grades.Add(grade);
         }
 
-        public void ShowStatistics()
+        public Statistics ShowStatistics()
         {
             var averageGrade = 0.0;
             var highGrade = double.MinValue;
@@ -46,6 +46,8 @@ namespace GradeBook
             Console.WriteLine($"The highest grade is {highGrade:N1}");
             Console.WriteLine($"The lowest grade is {lowGrade:N1}");
             Console.WriteLine($"The average grade is {averageGrade:N1}");
+            
+            
         }
     }
 }
