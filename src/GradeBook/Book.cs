@@ -7,11 +7,13 @@ namespace GradeBook
     
     public class NamedObject
     {
-        public string Name
+        public NamedObject(string name)
         {
-            get;
-            set;
+            Name = name;
+            Console.WriteLine("Name Set");
         }
+
+        public string Name { get; set; }
     }
     
     public class Book : NamedObject
@@ -20,9 +22,8 @@ namespace GradeBook
         
         public const string CATEGORY = "Science";
 
-        public Book(string name)
+        public Book(string name) : base(name)
         {
-            Name = name;
             grades = new List<double>();
         }
 
