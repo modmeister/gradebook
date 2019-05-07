@@ -5,14 +5,17 @@ namespace GradeBook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
     
-    public class Book
+    public class NamedObject
     {
         public string Name
         {
             get;
-            private set;
+            set;
         }
-        
+    }
+    
+    public class Book : NamedObject
+    {
         private List<double> grades;
         
         public const string CATEGORY = "Science";
